@@ -1,9 +1,9 @@
 
 public class SimpleExample {
 
-    private static final int NUM_THREADS = 4;
+    private static final int NUM_THREADS = 10;
     private static final long ITERATIONS = 100_000_000L;
-    private static volatile short[] memory = new short[NUM_THREADS];
+    private static volatile short[] memory = new short[NUM_THREADS*20];
     
     public static void main(String[] args) throws InterruptedException {
         
@@ -17,7 +17,7 @@ public class SimpleExample {
 
         for (int i = 0; i < NUM_THREADS; i++) {
             
-            final int memoryLocation = i;
+            final int memoryLocation = i*20;
 
             threads[i] = new Thread(() -> {
 
